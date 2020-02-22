@@ -2,11 +2,21 @@
 
 ## 1.1. Instalación de Ubuntu Bash en Windows
 
+Habilitar el Modo Programador:
+```
 > Configuración > Actualización y Seguridad > Para Programadores > Modo de Programador
+```
+Permitir un Subsistema de Windows para Linux:
 
+```
 > Panel de Control > Programas > Activar o desactivar características de Windows > Subsistema de Windows para Linux > Permitir reinicio
+```
+Instalar Ubuntu Bash:
 
+```
 > Microsoft Store > Instalar Ubuntu
+```
+Instalar extensión para VSCode que permite 
 
 Instalar extensión `Remote - WSL`
 
