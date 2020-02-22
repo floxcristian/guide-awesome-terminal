@@ -31,9 +31,23 @@ curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 
 otra forma de instalarlo:
 ```
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 ```
 
--sL:
+**-sL:**
+
++ **-s:** (--silent) modo silencioso: no muestra la barra de progreso ni los mensajes de error.
+
++ **-L:** (--location) si el server informa que la página se ha movido, esta opción hará que curl rehaga la solicitud en el nuevo lugar.
+
+
+**-E:** forma corta de ejecutar un script (como root) sin tener que guardar el archivo y luego ejecutarlo.
+
 -o:
 -E
+
+<img src="https://i.imgur.com/2vSDiE6.png">
+
+<img src="https://i.imgur.com/Ia2DRNl.png">
+
+<img src="https://i.imgur.com/JK8VPcH.png">
