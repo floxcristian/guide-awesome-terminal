@@ -1,6 +1,6 @@
-# 1. Introducción a la línea de Comandos
+<h1 align="center"> Introducción a la línea de Comandos</h1>
 
-## 1.1. Instalación de Ubuntu Bash en Windows
+# 1. Instalar Ubuntu Bash en Windows
 
 Habilitar el Modo Programador:
 ```
@@ -34,19 +34,24 @@ sudo apt update
 sudo apt upgrade
 ```
 
-Programa de terminal que nos muestra información del sistema instalado.
+## 1.2. Instalar extensión Remote - WSL para VSCode
+
+Esta es una extensión para Windows Subsystem for Linux.
+
+Ir a VSCode y buscar e instalar la extensión **Remote - WSL**.
+
+
+## 1.3. Instalar Screenfetch
+
+Screenfetch rd un programa de terminal que nos muestra información del sistema instalado.
+
+Instalar screenfetch:
 ```
 sudo apt install screenfetch
 ```
-Instalar extensión [Remote - WSL]() para VSCode. 
-Extensión para Windows Subsystem for Linux.
 
-## 1.2. Instalar nodejs
 
-Actualizar la lista de programas que tiene el sistema:
-```bash
-sudo apt update
-```
+## 1.4. Instalar nodejs
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -81,10 +86,12 @@ cd Users/
 mkdir floxcristian
 ```
 
-Abrir un proyecto con VSCode:
-```
-code .
-```
+# Personalizando nuestra terminal
+
+## Instalar zsh
+
+**zsh** es un shell compatible con bash, pero que añade varias funcionalidades. Una de las más interesantes es su integración con git.
+
 Instalar zsh:
 ```
 sudo apt install zsh
@@ -95,30 +102,32 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 Configurar zsh/oh-my-zsh:
 ```
-vim .bashrc
+code .bashrc
 ```
-
+Añadir lo siguiente después del primer comentario:
 ```
 if test -t 1; then
 exec zsh
 fi
 ```
 
-ESC
-:wq
 
 
+# 1.5. Instalar el tema Powerlevel10k para Oh-My-ZSH
 
-Instalando el template Powerlevel10k
+Clonar el respositorio:
+```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+```
 
-Cambiar el theme de zsh:
+Abrir el archivo de configuración de zsh:
 ```
 code .zshrc
-INSERT
+```
+Añadir el siguiente código para establecer **Powerlevel10k** como tema por defecto:
+```
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ESC
-:wq
+```
 
 Instalando las fuentes Meslo GS NF:
 
@@ -127,29 +136,24 @@ Instalación de Powerline Fonts
 
 Cambiar el tema y las fuentes
 
-En VSCode ir al icono Settings
-en el searchBox buscar terminal.font
-MesloLGS NF
-
-p10k configure
-```
 
 
 
 
-Atajos de teclado en Bash
-```
-ctrl + u: Limpiar lo escrito
-ctrl + l: Limpiar toda la terminal
-pwd: saber directorio donde estoy.
-El directorio mnt es donde estan las particiones de windows.
-mkdir: crear una carpeta
-touch: crear archivo. Ejemple: touch index.js
-vim index.js: para editar archivo
-cat: ver contenido de un archivo. Ejemplo: cat index.js
-```
 
-# Instalar Fuentes
+
+# 3. Instalar Nerd Fonts
+
+Para la configuración correcta de los glifos, no es compatible cualquier fuente.
+Por ello vamos al [repositorio de Nerd Fonts](https://github.com/ryanoasis/nerd-fonts,), descargamos la fuente deseada y la instalamos en el sistema.
+
+## 3.1. Establecer fuente en la terminal de Ubuntu
+
+## 3.2. Establecer fuente en la terminal de VSCode
+
+1. En VSCode ir al icono **Settings**.
+2. En el searchBox buscar **terminal.font**
+3. Establecer **MesloLGS NF** como fuente.
 
 **MesloLGS NF:**
 <img src="https://i.imgur.com/FOp76KU.png">
@@ -158,8 +162,10 @@ cat: ver contenido de un archivo. Ejemplo: cat index.js
 **[Firacode Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono):**
 <img src="https://i.imgur.com/3Z7BU7A.png">
 
-## Plugins para ZSH
 
+## 1.8. Plugins para ZSH
+
+Abrir el archivo de configuración de zsh:
 ```
 code .zshrc
 ```
