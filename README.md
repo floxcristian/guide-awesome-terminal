@@ -1,6 +1,24 @@
 <h1 align="center"> Introducción a la línea de Comandos</h1>
 
-# 1. Instalar Ubuntu Bash en Windows
+# 1. Instalar el Subsistema de Ubuntu en Windows 10
+
+Hace ya tres años, Microsoft presentó **WSL**, lo que son las siglas de Windows Susbystem for Linux. 
+el terminal de Ubuntu nos ofrece posibilidades muy interesantes que merece la pena tener a mano.
+
+Lógicamente, no es perfecto. Tal y como explicaremos a continuación, habrá algunas tareas que no podamos realizar, en parte porque lo que vamos a instalar y usar es solo un terminal, es decir, una ventana en la que introduciremos las líneas de comandos para hacer lo que necesitemos. A continuación os explico los pasos a seguir para instalar el terminal de Ubuntu 18.04 en Windows 10 y qué podemos hacer con él.
+
+Y eso sería todo. Ya tenemos el terminal de Ubuntu instalado en Windows. Por defecto ya podemos usar comandos como el APT, por lo que la primera prueba que recomiendo es instalar “neofetch”:
+
+# 3. ¿Qué podemos y no podemos hacer con WSL?
+
+Lo que hay que tener claro es qué es un terminal. Explicado rápido y mal, es un sistema operativo que funciona única y exclusivamente con líneas de comandos y no puede mostrar imágenes más allá del texto que introducimos/muestra. Esto significa que, por ejemplo, podemos instalar cualquier programa que esté disponible en los repositorios de Ubuntu, pero no podremos lanzar aquellos que hagan uso de una GUI, como Firefox (aunque no tendría sentido instalar nada que esté disponible para Windows de manera oficial). También significa que no podremos seguir, por ejemplo, este tutorial para grabar la pantalla con ffmpeg: si introducimos el comando y presionamos Intro, empezará la tarea, pero parará cuando se dé cuenta de que “no hay ningún monitor disponible”.
+
+# 4. Problema con las rutas
+
+Algo que me gustaría que solucionaran en el futuro está relacionado con las rutas. No son lo mismo y no las reconoce igual. El problema está en cómo las escribe Windows y cómo las necesita Linux. Lo bueno es que es fácil recordar cómo convertir una ruta de Windows a Linux.
+
+Por ejemplo: la ruta C:\Users\Pablo\Destktop\ de Windows sería /mnt/c/Users/Pablo/Desktop. Sabiéndolo, si alguna vez queremos arrastrar un archivo de Windows al terminal de Ubuntu, lo que tenemos que hacer es básicamente cambiar las barras invertidas por barras normales, poner la “c” minúscula, quitar los dos puntos y delante añadir “/mnt/”. No es difícil de recordar.
+
 
 Habilitar el Modo Programador:
 ```
@@ -25,7 +43,7 @@ Instalar Ubuntu desde la Microsoft Store:
 > Ubuntu
 ```
 
-Actualizar la lista de programas que tiene el sistema:
+Actualizar la lista de programas de Ubuntu:
 ```
 sudo apt update
 ```
@@ -43,13 +61,18 @@ Ir a VSCode y buscar e instalar la extensión **Remote - WSL**.
 
 ## 1.3. Instalar Screenfetch
 
-Screenfetch rd un programa de terminal que nos muestra información del sistema instalado.
+Neofetch ed un programa de terminal que nos muestra información del sistema instalado.
 
-Instalar screenfetch:
+Instalar neofetch:
 ```
-sudo apt install screenfetch
+sudo apt install neofetch
+```
+Ver información de nuestro sistema:
+```
+neofetch
 ```
 
+<img src="https://i.imgur.com/XpsUHdA.png">
 
 ## 1.4. Instalar nodejs
 
