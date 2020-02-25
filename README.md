@@ -1,5 +1,10 @@
 <h1 align="center"> Introducción a la línea de Comandos</h1>
 
+# Objetivos 
+
++ Aumentar las capacidades de configuración del shell y terminal de Ubuntu.
++ Personalizar el prompt de nuestra Terminal utilizando la shell ZSH y el programa oh-my-zsh.
+
 # 1. Instalar el Subsistema de Ubuntu en Windows 10
 
 Hace ya tres años, Microsoft presentó **WSL**, lo que son las siglas de Windows Susbystem for Linux. 
@@ -54,14 +59,14 @@ sudo apt upgrade
 
 ## 1.2. Instalar extensión Remote - WSL para VSCode
 
-Esta es una extensión para Windows Subsystem for Linux.
+Esta es una extensión para **Windows Subsystem for Linux**.
 
 Ir a VSCode y buscar e instalar la extensión **Remote - WSL**.
 
 
-## 1.3. Instalar Screenfetch
+## 1.3. Instalar Neofetch
 
-Neofetch ed un programa de terminal que nos muestra información del sistema instalado.
+Neofetch es un programa de terminal que nos muestra información del sistema instalado.
 
 Instalar neofetch:
 ```
@@ -119,10 +124,28 @@ Instalar zsh:
 ```
 sudo apt install zsh
 ```
+
+Verificar que la instalación ha sido completada:
+```
+zsh --version
+```
+
+## Instalar Oh-My-ZSH
+
+ **Oh-My-ZSH** es un proyecto de código abierto que nos ayudará a configurar el shell utilizando un sin número de plugins que tendremos a nuestra disposición. 
+
 Instalar oh-my-zsh:
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+
+## Establecer zsh como shell por defecto
+
+??????
+```
+chsh  -s  /bin/zsh
+```
+
 Configurar zsh/oh-my-zsh:
 ```
 code .bashrc
@@ -133,8 +156,6 @@ if test -t 1; then
 exec zsh
 fi
 ```
-
-
 
 # 1.5. Instalar el tema Powerlevel10k para Oh-My-ZSH
 
@@ -152,23 +173,40 @@ Añadir el siguiente código para establecer **Powerlevel10k** como tema por def
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
-Instalando las fuentes Meslo GS NF:
+# Instalar Fuentes Powerline
 
+ Para poder utilizar el tema anterior será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**.
 
-Instalación de Powerline Fonts
-
-Cambiar el tema y las fuentes
-
-
-
-
-
+ Instalar fuentes **Powerline**:
+ ```
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+ ```
+ Instalar fuentes **Awesome-Powerline**:
+ ```
+git clone https://github.com/gabrielelana/awesome-terminal-fonts
+cp -r ~/awesome-terminal-fonts/build ~/.fonts
+fc-cache -fv ~/.fonts
+ ```
 
 
 # 3. Instalar Nerd Fonts
 
+Otro tema que mezcla muy bien los distintos glyphs y letras es el tema basado en Nerd Fonts, este es un tema que incluye diferentes iconos de distintas fuentes como Font Awesome, Devicons, Octicons y otros más. 
 Para la configuración correcta de los glifos, no es compatible cualquier fuente.
 Por ello vamos al [repositorio de Nerd Fonts](https://github.com/ryanoasis/nerd-fonts,), descargamos la fuente deseada y la instalamos en el sistema.
+
+A continuación una vista previa de las Nerd Fonts.
+
+**MesloLGS NF:**
+<img src="https://i.imgur.com/FOp76KU.png">
+<img src="https://i.imgur.com/KKQLOpP.png">
+
+**[Firacode Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono):**
+<img src="https://i.imgur.com/3Z7BU7A.png">
 
 ## 3.1. Establecer fuente en la terminal de Ubuntu
 
@@ -178,23 +216,47 @@ Por ello vamos al [repositorio de Nerd Fonts](https://github.com/ryanoasis/nerd-
 2. En el searchBox buscar **terminal.font**
 3. Establecer **MesloLGS NF** como fuente.
 
-**MesloLGS NF:**
-<img src="https://i.imgur.com/FOp76KU.png">
-<img src="https://i.imgur.com/KKQLOpP.png">
 
-**[Firacode Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono):**
-<img src="https://i.imgur.com/3Z7BU7A.png">
 
 
 ## 1.8. Plugins para ZSH
 
 Abrir el archivo de configuración de zsh:
+
+zsh-syntax-highlighting?
 ```
 code .zshrc
 ```
 
 ```
+
 POWERLEVEL9K_MODE="nerdfont-complete"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time battery)
+
+POWERLEVEL9K_DIR_PATH_SEPARATOR=$' \uE0B1 '
+POWERLEVEL9K_TIME_FORMAT="%D{%d/%m/%y - %H:%M}"
+
+# Prompt settings
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%K{white}%k"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{green}%F{black} \uf554 %f%F{green}%k\ue0b0%f "
+
+plugins=( git )
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /bin/z.sh
+
+neofetch
+
+alias ll="ls -l"
+alias la="ls -a"
+alias nz="nano ~/.zshrc"
+alias sz=". ~/.zshrc"
 ```
 
 # Windows Terminal
