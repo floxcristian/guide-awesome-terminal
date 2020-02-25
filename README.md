@@ -34,7 +34,7 @@ Habilitar el Modo Programador:
 > Para Programadores 
 > Modo de Programador
 ```
-Permitir un Subsistema de Windows para Linux:
+Habilitar WSL:
 
 ```
 > Panel de Control 
@@ -43,12 +43,16 @@ Permitir un Subsistema de Windows para Linux:
 > Subsistema de Windows para Linux 
 > Permitir reinicio
 ```
+
+<img src="https://miro.medium.com/max/1200/1*9c5XL9_Z-1MbXx6mcwCrKA.png">
+
 Instalar Ubuntu desde la Microsoft Store:
 
 ```
 > Microsoft Store 
 > Ubuntu
 ```
+<img src="https://miro.medium.com/max/2070/1*ZSe0I--muE_JfLJq1jTn-g.png">
 
 Actualizar la lista de programas de Ubuntu:
 ```
@@ -118,7 +122,7 @@ mkdir floxcristian
 
 # Personalizando nuestra terminal
 
-## Instalar zsh
+## Instalar zsh shell
 
 **zsh** es un shell compatible con bash, pero que añade varias funcionalidades. Una de las más interesantes es su integración con git.
 
@@ -130,6 +134,11 @@ sudo apt install zsh
 Verificar que la instalación ha sido completada:
 ```
 zsh --version
+```
+
+Establecer zsh como bash por defecto:
+```bash
+chsh -s $(which zsh)
 ```
 
 ## Instalar Oh-My-ZSH
@@ -161,7 +170,7 @@ fi
 
 # 1.5. Instalar el tema Powerlevel10k para Oh-My-ZSH
 
-Clonar el respositorio:
+Clonar el respositorio en la carpeta de temas personalizados:
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
@@ -259,7 +268,12 @@ fc-cache -fv ~/.local/share/fonts
 ```
 
 Establecer la fuente parcheada a utilizar en la terminal.
+Also add this line below to use Nerd Patched fonts
 
+```
+code .zshrc
+POWERLEVEL9K_MODE="nerdfont-complete"
+```
 Por ello vamos al [repositorio de Nerd Fonts](https://github.com/ryanoasis/nerd-fonts,), descargamos la fuente deseada y la instalamos en el sistema.
 
 ## Método 3: Curl
@@ -284,8 +298,19 @@ A continuación una vista previa de las Nerd Fonts.
 ## 3.2. Establecer fuente en la terminal de VSCode
 
 1. En VSCode ir al icono **Settings**.
-2. En el searchBox buscar **terminal.font**.
+2. En el searchBox buscar **terminal.integrated.fontFamily**.
 3. Establecer la fuente deseada. Por ejemplo, **MesloLGS NF**.
+
+<img src="https://miro.medium.com/max/1345/1*DdS1YVBRVq1oCI-YKjqB0Q.png">
+
+## Configurar el tema Powerlevel10k
+
+Ejecutar:
+```bash
+p10k configure
+```
+Solo seguir los pasos que se vean en la terminal.
+En la último paso de configuración selecionar la opción 3 correspondiente a `verbose` y luego poner `Y`.
 
 
 
@@ -331,6 +356,22 @@ alias sz=". ~/.zshrc"
 ```
 
 # Windows Terminal
+
+<img src="https://miro.medium.com/max/2220/1*FKrcKH675zHiAHb78WHP3Q.png">
+
+Una vez instalado y ejecutado deberías ver la shell Powershell. Necesitas ir a las configuraciones clickeando el dropdown.
+
+<img src="https://miro.medium.com/max/1813/1*7pn49RXDcs8R-GbI3RIuvQ.png">
+
+Esto abrirá un archivo de configuración JSON en el notepad. Aquí deberemos hacer scroll hasta encontrar `"name": "Ubuntu"` y establecer la fuente añadiendo la siguiente línea:
+
+```
+"fontFace": "FuraMono Nerd Font",
+```
+
+<img src="https://miro.medium.com/max/1893/1*N3l6QFszAp428eU-p1gS0A.png">
+
+<img src="">
 
 ## Establecer Font
 
