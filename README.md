@@ -9,32 +9,20 @@ Aquellos usuarios que usan la terminal a diario prácticamente sin personalizar 
 
 # 1. Instalar el Subsistema de Ubuntu en Windows 10
 
-Hace ya tres años, Microsoft presentó **WSL**, lo que son las siglas de Windows Susbystem for Linux. 
-el terminal de Ubuntu nos ofrece posibilidades muy interesantes que merece la pena tener a mano.
+En 2017 Microsoft presentó **WSL**, siglas de **Windows Susbystem for Linux**.
+La terminal de Ubuntu nos ofrece posibilidades muy interesantes que merece la pena tener a mano.
 
-Lógicamente, no es perfecto. Tal y como explicaremos a continuación, habrá algunas tareas que no podamos realizar, en parte porque lo que vamos a instalar y usar es solo un terminal, es decir, una ventana en la que introduciremos las líneas de comandos para hacer lo que necesitemos. A continuación os explico los pasos a seguir para instalar el terminal de Ubuntu 18.04 en Windows 10 y qué podemos hacer con él.
-
-Y eso sería todo. Ya tenemos el terminal de Ubuntu instalado en Windows. Por defecto ya podemos usar comandos como el APT, por lo que la primera prueba que recomiendo es instalar “neofetch”:
-
-# 3. ¿Qué podemos y no podemos hacer con WSL?
-
-Lo que hay que tener claro es qué es un terminal. Explicado rápido y mal, es un sistema operativo que funciona única y exclusivamente con líneas de comandos y no puede mostrar imágenes más allá del texto que introducimos/muestra. Esto significa que, por ejemplo, podemos instalar cualquier programa que esté disponible en los repositorios de Ubuntu, pero no podremos lanzar aquellos que hagan uso de una GUI, como Firefox (aunque no tendría sentido instalar nada que esté disponible para Windows de manera oficial). También significa que no podremos seguir, por ejemplo, este tutorial para grabar la pantalla con ffmpeg: si introducimos el comando y presionamos Intro, empezará la tarea, pero parará cuando se dé cuenta de que “no hay ningún monitor disponible”.
-
-# 4. Problema con las rutas
-
-Algo que me gustaría que solucionaran en el futuro está relacionado con las rutas. No son lo mismo y no las reconoce igual. El problema está en cómo las escribe Windows y cómo las necesita Linux. 
-
-Por ejemplo: la ruta de **Windows** `C:\Users\Pablo\Destktop\` en **Linux** sería `/mnt/c/Users/Pablo/Desktop`.
+Lógicamente, no es perfecto. Tal y como explicaremos a continuación, habrá algunas tareas que no podamos realizer, en parte porque lo que vamos a instalar y usar es solo la terminal, es decir, una ventana en la que introduciremos las líneas de comandos para hacer lo que necesitemos.
 
 
-Habilitar el Modo Programador:
+1. Habilitar el Modo Programador:
 ```
 > Configuración 
 > Actualización y Seguridad 
 > Para Programadores 
 > Modo de Programador
 ```
-Habilitar WSL:
+2. Habilitar WSL:
 
 ```
 > Panel de Control 
@@ -46,7 +34,7 @@ Habilitar WSL:
 
 <img src="https://i.imgur.com/6pMKiyu.png">
 
-Instalar Ubuntu desde la Microsoft Store:
+3. Instalar Ubuntu desde la Microsoft Store:
 
 ```
 > Microsoft Store 
@@ -54,14 +42,25 @@ Instalar Ubuntu desde la Microsoft Store:
 ```
 <img src="https://i.imgur.com/FngJJSE.png">
 
-Actualizar la lista de programas de Ubuntu:
-```
+4. Actualizar la lista de programas de Ubuntu:
+```bash
 sudo apt update
 ```
-
-```
+5. 
+```bash
 sudo apt upgrade
 ```
+
+# 3. ¿Qué podemos y no podemos hacer con WSL?
+
+Lo que hay que tener claro es qué es un terminal. Explicado rápido y mal, es un sistema operativo que funciona única y exclusivamente con líneas de comandos y no puede mostrar imágenes más allá del texto que introducimos/muestra. Esto significa que, por ejemplo, podemos instalar cualquier programa que esté disponible en los repositorios de Ubuntu, pero no podremos lanzar aquellos que hagan uso de una GUI, como Firefox (aunque no tendría sentido instalar nada que esté disponible para Windows de manera oficial). También significa que no podremos seguir, por ejemplo, este tutorial para grabar la pantalla con ffmpeg: si introducimos el comando y presionamos Intro, empezará la tarea, pero parará cuando se dé cuenta de que “no hay ningún monitor disponible”.
+
+# 4. Rutas en Windows y Linux
+
+Ls rutas en **Windows** y **Linux** no se reconocen de la misma forma. El problema está en cómo las escribe Windows y cómo las necesita Linux. 
+
+Por ejemplo la ruta de **Windows** `C:\Users\Pablo\Destktop\` en **Linux** sería `/mnt/c/Users/Pablo/Desktop`.
+
 
 ## 1.2. Instalar extensión Remote - WSL para VSCode
 
@@ -74,12 +73,12 @@ Esta es una extensión para **Windows Subsystem for Linux**.
 
 Neofetch es un programa de terminal que nos muestra información del sistema instalado.
 
-Instalar neofetch:
-```
+1. Instalar neofetch:
+```bash
 sudo apt install neofetch
 ```
-Ver información de nuestro sistema:
-```
+2. Ver información de nuestro sistema:
+```bash
 neofetch
 ```
 
@@ -87,14 +86,15 @@ neofetch
 
 ## 1.4. Instalar nodejs
 
+1. 
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 ```
-
+2.  
 ```bash
 sudo apt-get install gcc g++ make
 ```
-
+3. 
 ```bash
 sudo apt-get install -y nodejs
 ```
@@ -114,35 +114,32 @@ sudo apt-get install -y nodejs
 
 **zsh** es un shell compatible con bash, pero que añade varias funcionalidades. Una de las más interesantes es su integración con git.
 
-Instalar zsh:
+1. Instalar zsh:
 ```bash
 sudo apt install zsh
 ```
 
-Verificar que la instalación ha sido completada:
+2. Verificar instalación:
 ```bash
 zsh --version
 ```
 
-Establecer zsh como bash por defecto:
+3. Establecer zsh como shell por defecto:
 ```bash
 chsh -s $(which zsh)
+```
+
+```
+chsh  -s  /bin/zsh
 ```
 
 ## Instalar Oh-My-ZSH
 
  **Oh-My-ZSH** es un proyecto de código abierto que nos ayudará a configurar el shell utilizando un sin número de plugins que tendremos a nuestra disposición. 
 
-Instalar oh-my-zsh:
+1. Instalar oh-my-zsh:
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-## Establecer zsh como shell por defecto
-
-??????
-```
-chsh  -s  /bin/zsh
 ```
 
 Configurar zsh/oh-my-zsh:
@@ -158,17 +155,17 @@ fi
 
 # 1.5. Instalar el tema Powerlevel10k para Oh-My-ZSH
 
-Clonar el respositorio en la carpeta de temas personalizados:
-```
+1. Clonar el respositorio en la carpeta de temas personalizados:
+```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-Abrir el archivo de configuración de zsh:
-```
+2. Abrir el archivo de configuración de zsh:
+```bash
 code .zshrc
 ```
-Añadir el siguiente código para establecer **Powerlevel10k** como tema por defecto:
-```
+3. Añadir el siguiente código para establecer **Powerlevel10k** como tema por defecto:
+```bash
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
