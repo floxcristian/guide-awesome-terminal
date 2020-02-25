@@ -22,9 +22,9 @@ Lo que hay que tener claro es qué es un terminal. Explicado rápido y mal, es u
 
 # 4. Problema con las rutas
 
-Algo que me gustaría que solucionaran en el futuro está relacionado con las rutas. No son lo mismo y no las reconoce igual. El problema está en cómo las escribe Windows y cómo las necesita Linux. Lo bueno es que es fácil recordar cómo convertir una ruta de Windows a Linux.
+Algo que me gustaría que solucionaran en el futuro está relacionado con las rutas. No son lo mismo y no las reconoce igual. El problema está en cómo las escribe Windows y cómo las necesita Linux. 
 
-Por ejemplo: la ruta C:\Users\Pablo\Destktop\ de Windows sería /mnt/c/Users/Pablo/Desktop. Sabiéndolo, si alguna vez queremos arrastrar un archivo de Windows al terminal de Ubuntu, lo que tenemos que hacer es básicamente cambiar las barras invertidas por barras normales, poner la “c” minúscula, quitar los dos puntos y delante añadir “/mnt/”. No es difícil de recordar.
+Por ejemplo: la ruta de **Windows** `C:\Users\Pablo\Destktop\` en **Linux** sería `/mnt/c/Users/Pablo/Desktop`.
 
 
 Habilitar el Modo Programador:
@@ -44,7 +44,7 @@ Habilitar WSL:
 > Permitir reinicio
 ```
 
-<img src="https://miro.medium.com/max/1200/1*9c5XL9_Z-1MbXx6mcwCrKA.png">
+<img src="https://i.imgur.com/6pMKiyu.png">
 
 Instalar Ubuntu desde la Microsoft Store:
 
@@ -52,7 +52,7 @@ Instalar Ubuntu desde la Microsoft Store:
 > Microsoft Store 
 > Ubuntu
 ```
-<img src="https://miro.medium.com/max/2070/1*ZSe0I--muE_JfLJq1jTn-g.png">
+<img src="https://i.imgur.com/FngJJSE.png">
 
 Actualizar la lista de programas de Ubuntu:
 ```
@@ -67,7 +67,7 @@ sudo apt upgrade
 
 Esta es una extensión para **Windows Subsystem for Linux**.
 
-Ir a VSCode y buscar e instalar la extensión [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
+<img src="https://i.imgur.com/IdXTApj.png">
 
 
 ## 1.3. Instalar Neofetch
@@ -83,7 +83,7 @@ Ver información de nuestro sistema:
 neofetch
 ```
 
-<img src="https://i.imgur.com/XpsUHdA.png">
+<img src="https://i.imgur.com/peEdv25.png">
 
 ## 1.4. Instalar nodejs
 
@@ -108,18 +108,6 @@ sudo apt-get install -y nodejs
 **-E:** forma corta de ejecutar un script (como root) sin tener que guardar el archivo y luego ejecutarlo.
 
 
-Montar el disco C en ubuntu:
-
-```
-cd /mnt/c
-```
-
-Establecer un directorio para alojar nuestros archivos:
-```
-cd Users/
-mkdir floxcristian
-```
-
 # Personalizando nuestra terminal
 
 ## Instalar zsh shell
@@ -127,12 +115,12 @@ mkdir floxcristian
 **zsh** es un shell compatible con bash, pero que añade varias funcionalidades. Una de las más interesantes es su integración con git.
 
 Instalar zsh:
-```
+```bash
 sudo apt install zsh
 ```
 
 Verificar que la instalación ha sido completada:
-```
+```bash
 zsh --version
 ```
 
@@ -146,7 +134,7 @@ chsh -s $(which zsh)
  **Oh-My-ZSH** es un proyecto de código abierto que nos ayudará a configurar el shell utilizando un sin número de plugins que tendremos a nuestra disposición. 
 
 Instalar oh-my-zsh:
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
@@ -297,8 +285,8 @@ A continuación una vista previa de las Nerd Fonts.
 
 ## 3.2. Establecer fuente en la terminal de VSCode
 
-1. En VSCode ir al icono **Settings**.
-2. En el searchBox buscar **terminal.integrated.fontFamily**.
+1. Ir al icono **Settings**.
+2. Buscar **terminal.integrated.fontFamily**.
 3. Establecer la fuente deseada. Por ejemplo, **MesloLGS NF**.
 
 <img src="https://miro.medium.com/max/1345/1*DdS1YVBRVq1oCI-YKjqB0Q.png">
@@ -363,7 +351,7 @@ Una vez instalado y ejecutado deberías ver la shell Powershell. Necesitas ir a 
 
 <img src="https://miro.medium.com/max/1813/1*7pn49RXDcs8R-GbI3RIuvQ.png">
 
-Esto abrirá un archivo de configuración JSON en el notepad. Aquí deberemos hacer scroll hasta encontrar `"name": "Ubuntu"` y establecer la fuente añadiendo la siguiente línea:
+Esto abrirá un archivo de configuración JSON en el notepad. Aquí deberemos hacer scroll hasta encontrar `"name": "Ubuntu"` y establecer la fuente deseada añadiendo la siguiente línea:
 
 ```
 "fontFace": "FuraMono Nerd Font",
