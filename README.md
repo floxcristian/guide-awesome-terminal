@@ -1,5 +1,7 @@
 <h1 align="center"> Introducción a la línea de Comandos</h1>
 
+Aquellos usuarios que usan la terminal a diario prácticamente sin personalizar tal vez esta sea una oportunidad para darle un toque de color y romper con la monotonía. Confieso que soy algo renuente al cambio – últimamente me llevo muy bien con la simplicidad –, no obstante decidí probar esta aplicación que poco a poco se va abriendo camino, y debo admitir que está muy bien lograda. A los usuarios que les gusta personalizar la terminal posiblemente se llevarán una buena impresión.
+
 # Objetivos 
 
 + Aumentar las capacidades de configuración del shell y terminal de Ubuntu.
@@ -61,7 +63,7 @@ sudo apt upgrade
 
 Esta es una extensión para **Windows Subsystem for Linux**.
 
-Ir a VSCode y buscar e instalar la extensión **Remote - WSL**.
+Ir a VSCode y buscar e instalar la extensión [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
 
 
 ## 1.3. Instalar Neofetch
@@ -175,7 +177,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Instalar Fuentes Powerline
 
- Para poder utilizar el tema anterior será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**.
+ Para la configuración correcta de los glifos, no es compatible cualquier fuente. Para poder utilizar el tema anterior será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**.
 
  Instalar fuentes **Powerline**:
  ```
@@ -194,10 +196,79 @@ fc-cache -fv ~/.fonts
 
 
 # 3. Instalar Nerd Fonts
+https://github.com/ryanoasis/nerd-fonts/blob/master/readme_es.md#option-3-install-script
 
-Otro tema que mezcla muy bien los distintos glyphs y letras es el tema basado en Nerd Fonts, este es un tema que incluye diferentes iconos de distintas fuentes como Font Awesome, Devicons, Octicons y otros más. 
-Para la configuración correcta de los glifos, no es compatible cualquier fuente.
+Nerd Fonts es un proyecto que parcha las fuentes que un desarrollador va a usar con un número alto de glifos (iconos). Especificamente añade un gran número de glifos extra de algunas **fuentes de iconos** como Font Awesome, Devicons, Octicons, y otras.
+
+Nerd Fonts toma algunas fuentes populares de desarrollo y les añade una cantidad de Glifos. También hay un [parchador]() de fuentes disponible si tu fuente preferida no ha sido parchada previamente.
+
+En la siguiente imagen se puede ver el conjunto de iconos (glyph) incluidos.
+
+<img src="https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/images/sankey-glyphs-combined-diagram.svg?sanitize=true">
+
+
+Existen varios métodos de instalar las fuentes Nerd Fonts. En este artículo se mostrarán solo algunos métodos.
+
+## 3.1. Método 1: Curl
+
+El primer método consiste en clonar el repositorio y luego ejecutar el sript install.sh el cual nos instalaría todo el paquete de fuentes incluidas en el repositorio. Esto significa que el proceso tomaría mucho tiempo y espacio en nuestra unidad de almacenamiento. Este proceso se ejecutaría de la siguiente forma:
+
+```bash
+git clone https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+sudo ./install.sh
+```
+En el caso de obtener algún error durante la ejecución del último comando, revisar que el archivo install.sh cuenta con los permisos de ejecución, o lo que es lo mismo, se los asignamos directamente de la siguiente manera:
+```bash
+chmod +x install.sh
+```
+
+
+## 3.2. Método 2: Descarga Manual
+
+Descargar rápidamente una fuente individual, descargar desde el [directorio patched-fonts/](https://github.com/ryanoasis/nerd-fonts#patched-fonts).
+
+Descargar un paquete **font family** de variaciones (negrita, cursiva, etc), revisar el siguiente enlace.
+
+El segundo método consiste en instalar solo las fuentes necesarias, en este caso estamos hablando de Share Tech Mono Nerd Font Complete Mono y Shure Tech Mono Nerd Font Complete. Estas fuentes han sido ya parchadas por lo cual no es necesario que hagamos ningún procedimiento adicional. Solo debemos descargar la fuentes de este enlace y copiarlas en el directorio en donde se encuentran instaladas las fuentes en su sistema operativo, en la mayoria de los casos en la carpeta `~/.fonts`.
+
+Una vez instaladas las fuentes solo necesitamos decirle al terminal que debe usar estas fuentes por defecto para así poder contar con los glyghs de este paquete así como la fuente en si. 
+
+Para esto hacemos una vez click con el botón derecho del ratón sobre algún punto dentro de la ventana de Terminatro y seleccionamos Preferencias del menú desplegable, luego cambiamos las fuentes que aparecen por defecto en la pestaña llamada Global, seleccionamos ShureTechMono Nerd Font y hacemos lo propio en la pestaña Profile -> General.
+
+Por último vamos a necesitar un archivo de configuración .zshrc, este es un archivo el cual debe incluir una serie de instrucciones dirigidas a seleccionar los diferentes iconos que aparecerán en el Terminal así como el arreglo en el cual estarán dispuestos.
+
+Ejemplos de archivos de configuración pueden ser encontrados en este [enlace](https://github.com/tonylambiris/dotfiles/blob/master/dot.tmux.conf). Adicional les puedo dejar el archivo de configuración de mi Terminal la cual está basada en los archivos de configuración a los que hago previa referencia. Dichos archivos de configuración los podrán encontrar en el siguiente [enlace](https://github.com/jdelacruz26/misccode/tree/zsh-config).
+
+
+ son dos archivos relevantes los cuales tendrán que copiar en su directorio personal como archivos ocultos,
+ 
+ ```bash
+cd misccode
+cp my.zshrc ~/.zshrc
+cp my.inputrc ~/.inputrc
+ ```
+
+me he limitado a escoger algunos paquetes de fuentes parcheadas más populares – posiblemente no son las tipografías que ustedes querrían –. Para que se entienda la diferencia entre manual y archivo de descarga, mientras el primero el usuario escoge un solo tipo de tipografía por ejemplo: Hack regular, el archivo de descarga baja el conjunto completo de Hack, es decir: Hack regular/bold/itálica etc.
+
+Una vez que hayas descargado algunas o todas las fuentes en algún lugar de tu carpeta personal el siguiente paso es descomprimirlas y copiarlas a la ubicación ~/.local/share/fonts. En caso de no existir la carpeta fonts la creamos de la siguiente forma:
+
+Una vez copiadas las fuentes en la carpeta mencionada refrescamos la cache:
+```bash 
+fc-cache -fv ~/.local/share/fonts
+```
+
+Establecer la fuente parcheada a utilizar en la terminal.
+
 Por ello vamos al [repositorio de Nerd Fonts](https://github.com/ryanoasis/nerd-fonts,), descargamos la fuente deseada y la instalamos en el sistema.
+
+## Método 3: Curl
+Ejecutar la siguiente linea donde: DroidSansMono hace referencia a la fuente que en este caso se desea descargar.
+
+```bash
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font \Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/\DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+```
+---
 
 A continuación una vista previa de las Nerd Fonts.
 
@@ -213,8 +284,8 @@ A continuación una vista previa de las Nerd Fonts.
 ## 3.2. Establecer fuente en la terminal de VSCode
 
 1. En VSCode ir al icono **Settings**.
-2. En el searchBox buscar **terminal.font**
-3. Establecer **MesloLGS NF** como fuente.
+2. En el searchBox buscar **terminal.font**.
+3. Establecer la fuente deseada. Por ejemplo, **MesloLGS NF**.
 
 
 
@@ -264,3 +335,10 @@ alias sz=". ~/.zshrc"
 ## Establecer Font
 
 ## Establecer WSL por defecto
+
+
+# Conclusiones
+
+En este pequeño instructivo su pudo mostrar como actualizar nuestra terminal por defecto en Ubuntu, instalando una nueva llamada Terminator. Esta terminal nos permitió dividir la ventana principal en subventanas además de la opción de agrupar las subventanas para realizar un Broadcast entre ellas.
+
+Por último, pudimos ver cómo instalando la shell ZSH y el programa oh-my-zsh, acompañado de otros paquetes de fuentes como Powerline y Nerd Fonts, lográbamos configurar el prompt de nuestra terminal dándole un aspecto más atractivo que nos permitiera !echarle más ganas durante nuestras horas de trabajo o diversión!
