@@ -2,10 +2,21 @@
 
 Aquellos usuarios que usan la terminal a diario prácticamente sin personalizar tal vez esta sea una oportunidad para darle un toque de color y romper con la monotonía. Confieso que soy algo renuente al cambio – últimamente me llevo muy bien con la simplicidad –, no obstante decidí probar esta aplicación que poco a poco se va abriendo camino, y debo admitir que está muy bien lograda. A los usuarios que les gusta personalizar la terminal posiblemente se llevarán una buena impresión.
 
+En este tutorial vamos a:
+
++ instalar la shell **ZSH** sobre Ubuntu como Subsistema de Windows.
++ personalizar la shell **ZSH** con el framework **Oh-My-ZSH**.
++ personalizar la shell con el tema **Powerlevel10k**.
+
 # Objetivos 
 
 + Aumentar las capacidades de configuración del shell y terminal de Ubuntu.
 + Personalizar el prompt de nuestra Terminal utilizando la shell ZSH y el programa oh-my-zsh.
+
+# Requerimientos
+
++ Windows 10 instalado.
+
 
 # 1. Instalar el Subsistema de Ubuntu en Windows 10
 
@@ -57,8 +68,7 @@ Lo que hay que tener claro es qué es un terminal. Explicado rápido y mal, es u
 
 # 4. Rutas en Windows y Linux
 
-Ls rutas en **Windows** y **Linux** no se reconocen de la misma forma. El problema está en cómo las escribe Windows y cómo las necesita Linux. 
-
+Ls rutas en **Windows** y **Linux** no se reconocen de la misma forma.
 Por ejemplo la ruta de **Windows** `C:\Users\Pablo\Destktop\` en **Linux** sería `/mnt/c/Users/Pablo/Desktop`.
 
 
@@ -108,9 +118,7 @@ sudo apt-get install -y nodejs
 **-E:** forma corta de ejecutar un script (como root) sin tener que guardar el archivo y luego ejecutarlo.
 
 
-# Personalizando nuestra terminal
-
-## Instalar zsh shell
+## Instalar zsh shell sobre Linux
 
 **zsh** es un shell compatible con bash, pero que añade varias funcionalidades. Una de las más interesantes es su integración con git.
 
@@ -129,8 +137,9 @@ zsh --version
 chsh -s $(which zsh)
 ```
 
-```
-chsh  -s  /bin/zsh
+4. Reiniciar la terminal y verificar que imprima `/usr/bin/zsh` al ejecutar:
+```bash
+echo $SHELL
 ```
 
 ## Instalar Oh-My-ZSH
@@ -141,13 +150,14 @@ chsh  -s  /bin/zsh
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+---
 
-Configurar zsh/oh-my-zsh:
-```
+Abri el archivo de configuración de bash:
+```bash
 code .bashrc
 ```
 Añadir lo siguiente después del primer comentario:
-```
+```bash
 if test -t 1; then
 exec zsh
 fi
@@ -169,9 +179,11 @@ code .zshrc
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
-# Instalar Fuentes Powerline
+Para la configuración correcta de los iconos, no es compatible cualquier fuente. Existen dos opciones para el correcto funcionamiento de los iconos.
 
- Para la configuración correcta de los glifos, no es compatible cualquier fuente. Para poder utilizar el tema anterior será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**.
+# [Opción 1] Instalar Fuentes Powerline
+
+Para poder utilizar el tema **Powerlevel10k** será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**.
 
  Instalar fuentes **Powerline**:
  ```
@@ -189,19 +201,24 @@ fc-cache -fv ~/.fonts
  ```
 
 
-# 3. Instalar Nerd Fonts
+# [Opción 2] Instalar Nerd Fonts
+---
+Descargar e Instalar la fuente **FuraMono Nerd Font**. Para Ubuntu necesitará la fuente **FiraMono**, de lo contrario, es posible que la terminal no muestre la fuente. Basta con descargar e instalar la versión regular de la fuente deseada, pero si en alguna terminal configuramos la fuente en negrita o cursiva esta no se mostrará correctamente por lo que se recomienda instalar el paquete de fuente completo.
+---
+
+
 https://github.com/ryanoasis/nerd-fonts/blob/master/readme_es.md#option-3-install-script
 
-Nerd Fonts es un proyecto que parcha las fuentes que un desarrollador va a usar con un número alto de glifos (iconos). Especificamente añade un gran número de glifos extra de algunas **fuentes de iconos** como Font Awesome, Devicons, Octicons, y otras.
+Nerd Fonts es un proyecto que parcha las fuentes que un desarrollador va a usar con un gran número de iconos. Especificamente añade iconos extra de algunas **fuentes de iconos** como **Font Awesome**, **Devicons**, **Octicons**, y otras.
 
-Nerd Fonts toma algunas fuentes populares de desarrollo y les añade una cantidad de Glifos. También hay un [parchador]() de fuentes disponible si tu fuente preferida no ha sido parchada previamente.
+Si bien Nerd Fonts toma algunas fuentes populares de desarrollo y les añade una cantidad de iconos, también hay un [parchador]() de fuentes disponible si tu fuente preferida no ha sido parchada previamente.
 
-En la siguiente imagen se puede ver el conjunto de iconos (glyph) incluidos.
+En la siguiente imagen se puede ver el conjunto de iconos incluidos.
 
 <img src="https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/images/sankey-glyphs-combined-diagram.svg?sanitize=true">
 
 
-Existen varios métodos de instalar las fuentes Nerd Fonts. En este artículo se mostrarán solo algunos métodos.
+Existen varios formas de instalar las fuentes **Nerd Fonts**. En este artículo se mostrarán solo algunos métodos.
 
 ## 3.1. Método 1: Curl
 
@@ -252,11 +269,13 @@ Una vez copiadas las fuentes en la carpeta mencionada refrescamos la cache:
 fc-cache -fv ~/.local/share/fonts
 ```
 
-Establecer la fuente parcheada a utilizar en la terminal.
-Also add this line below to use Nerd Patched fonts
 
-```
+Abrir el archivo de configuración de **ZHS**:
+```bash
 code .zshrc
+```
+Añadir la siguiente linea para utilizar las **Nerd Fonts**:
+```bash
 POWERLEVEL9K_MODE="nerdfont-complete"
 ```
 Por ello vamos al [repositorio de Nerd Fonts](https://github.com/ryanoasis/nerd-fonts,), descargamos la fuente deseada y la instalamos en el sistema.
@@ -302,17 +321,32 @@ En la último paso de configuración selecionar la opción 3 correspondiente a `
 
 ## 1.8. Plugins para ZSH
 
-Abrir el archivo de configuración de zsh:
+1. Instalar plugins deseados.
 
-zsh-syntax-highlighting?
+**autosuggestion**:
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
+
+**zsh-syntax-highlighting**:
+```bash
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+```
+
+2. Abrir el archivo de configuración de zsh:
+```bash
 code .zshrc
 ```
-
+3. Añadir plugins al archivo de configuración de **ZSH**. Para ello hacer scroll hasta encontrar:
+```bash
+plugins=(git)
+```
+4. Añadir los plugins descargados:
+```bash
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ```
 
-POWERLEVEL9K_MODE="nerdfont-complete"
-
+```bash
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time battery)
 
