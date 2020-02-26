@@ -1,5 +1,14 @@
 <h1 align="center"> Introducción a la línea de Comandos</h1>
 
+# Tabla de Contenido
+
++ 1. [Instalar WSL]()
++ 2. [Instalar Ubuntu]()
++ Instalar la shell ZSH
++ Instalar Oh-My-ZSH
++ Instalar el tema Powerlevel10k
++ Instalar Plugins
+
 Aquellos usuarios que usan la terminal a diario prácticamente sin personalizar tal vez esta sea una oportunidad para darle un toque de color y romper con la monotonía. Confieso que soy algo renuente al cambio – últimamente me llevo muy bien con la simplicidad –, no obstante decidí probar esta aplicación que poco a poco se va abriendo camino, y debo admitir que está muy bien lograda. A los usuarios que les gusta personalizar la terminal posiblemente se llevarán una buena impresión.
 
 En este tutorial vamos a:
@@ -15,15 +24,24 @@ En este tutorial vamos a:
 
 # Requerimientos
 
-+ Windows 10 instalado.
++ Windows 10 Anniversary Update build 14316 o superior.
 
 
-# 1. Instalar el Subsistema de Ubuntu en Windows 10
+
+# 1. Instalar WSL
 
 En 2017 Microsoft presentó **WSL**, siglas de **Windows Susbystem for Linux**.
 La terminal de Ubuntu nos ofrece posibilidades muy interesantes que merece la pena tener a mano.
 
 Lógicamente, no es perfecto. Tal y como explicaremos a continuación, habrá algunas tareas que no podamos realizer, en parte porque lo que vamos a instalar y usar es solo la terminal, es decir, una ventana en la que introduciremos las líneas de comandos para hacer lo que necesitemos.
+
+## 1.1. Método 1: Usando la Powershell
+
+```bash
+powershell -command Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+
+## 1.2. Método 2: Manualmente
 
 
 1. Habilitar el Modo Programador:
@@ -165,6 +183,13 @@ fi
 
 # 1.5. Instalar el tema Powerlevel10k para Oh-My-ZSH
 
+
+## Compatibilidad con Powerlevel9k
+
+Este tema entiende todos los parámetros de configuración de **Powerlevel9k**.
+
+<img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/9k-compatibility.gif">
+
 1. Clonar el respositorio en la carpeta de temas personalizados:
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -183,7 +208,7 @@ Para la configuración correcta de los iconos, no es compatible cualquier fuente
 
 # [Opción 1] Instalar Fuentes Powerline
 
-Para poder utilizar el tema **Powerlevel10k** será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**.
+Para que el tema**Powerlevel10k** se renderice correctamente será necesario la instalación de las fuentes **Powerline** y **Awesone-Powerline**. se necesita una fuente que tenga los iconos **Powerline**. Estos se usan al principio y final de los segmentos para producir la apariencia **Powerline**.
 
  Instalar fuentes **Powerline**:
  ```
@@ -238,8 +263,16 @@ chmod +x install.sh
 ## 3.2. Método 2: Descarga Manual
 
 Descargar rápidamente una fuente individual, descargar desde el [directorio patched-fonts/](https://github.com/ryanoasis/nerd-fonts#patched-fonts).
+---
+Descargar un paquete **font family** de variaciones (negrita, cursiva, etc).
 
-Descargar un paquete **font family** de variaciones (negrita, cursiva, etc), revisar el siguiente enlace.
+Seleccione la **font family** y luego seleccione el directorio `complete`.
++ Si esta en Windows elija la fuente con el súfijo `Windows Compatible`.
+    - Esta incluye ajustes específicos para garantizar que la fuente funciones en Windows, en particular la identificación del monoespaciado y las limitaciones en el nombre de la fuente.
++ Si esta limitado a fuentes monoespaciadas (debido a su terminal u otros) elija una fuente con el sufijo `Mono`.
+    - Esta denota que los iconos de Nerd Font serán monoespaciados, no necesariamente que toda la fuente será monoespaciada.
+
+---
 
 El segundo método consiste en instalar solo las fuentes necesarias, en este caso estamos hablando de Share Tech Mono Nerd Font Complete Mono y Shure Tech Mono Nerd Font Complete. Estas fuentes han sido ya parchadas por lo cual no es necesario que hagamos ningún procedimiento adicional. Solo debemos descargar la fuentes de este enlace y copiarlas en el directorio en donde se encuentran instaladas las fuentes en su sistema operativo, en la mayoria de los casos en la carpeta `~/.fonts`.
 
