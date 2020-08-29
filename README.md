@@ -27,10 +27,9 @@ En este tutorial vamos a:
 
 # 1. Instalar WSL
 
-En 2017 Microsoft presentó **WSL**, siglas de **Windows Susbystem for Linux**.
-La terminal de Ubuntu nos ofrece posibilidades muy interesantes que merece la pena tener a mano.
-
-Lógicamente, no es perfecto. Tal y como explicaremos a continuación, habrá algunas tareas que no podamos realizer, en parte porque lo que vamos a instalar y usar es solo la terminal, es decir, una ventana en la que introduciremos las líneas de comandos para hacer lo que necesitemos.
++ En 2017 Microsoft presentó **WSL**, siglas de **Windows Susbystem for Linux**.
++ La terminal de Ubuntu nos ofrece posibilidades muy interesantes.
++ Habrá algunas tareas que no podremos realizar, en parte porque lo que vamos a instalar y usar es solo la terminal, es decir, una ventana en la que introduciremos líneas de comandos para hacer lo que necesitemos.
 
 ## 1.1. Método 1: Usando la Powershell
 
@@ -80,8 +79,7 @@ sudo apt upgrade
 # 3. ¿Qué podemos y no podemos hacer con WSL?
 
 + Podemos instalar cualquier programa que esté disponible en los repositorios de Ubuntu. 
-+ No podremos lanzar aquellos programas que hagan uso de una GUI. 
-+ No podremos seguir, por ejemplo, este tutorial para grabar la pantalla con **ffmpeg**. Si introducimos el comando y presionamos Intro, empezará la tarea, pero parará cuando se dé cuenta de que *no hay ningún monitor disponible*.
++ No podemos lanzar programas que hagan uso de una GUI. 
 
 # 4. Rutas en Windows y Linux
 
@@ -98,7 +96,7 @@ Esta es una extensión para **Windows Subsystem for Linux**.
 
 ## 1.3. Instalar Neofetch
 
-Neofetch es un programa de terminal que nos muestra información del sistema instalado.
++ Programa de terminal que nos muestra información del sistema instalado.
 
 1. Instalar neofetch:
 ```bash
