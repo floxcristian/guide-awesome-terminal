@@ -17,13 +17,12 @@ En este tutorial vamos a:
 
 # Objetivos 
 
-+ Aumentar las capacidades de configuración del shell y terminal de Ubuntu.
-+ Personalizar el prompt de nuestra Terminal utilizando la shell ZSH y el programa oh-my-zsh.
++ Aumentar las capacidades de configuración de la shell y terminal de Ubuntu.
++ Personalizar el prompt de nuestra Terminal utilizando la shell **ZSH** y el programa **oh-my-zsh**.
 
 # Requerimientos
 
 + Windows 10 Anniversary Update build 14316 o superior.
-
 
 
 # 1. Instalar WSL
