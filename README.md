@@ -18,7 +18,7 @@ En este tutorial vamos a:
 # Objetivos 
 
 + Aumentar las capacidades de configuración de la shell y terminal de Ubuntu.
-+ Personalizar el prompt de nuestra Terminal utilizando la shell **ZSH** y el programa **oh-my-zsh**.
++ Personalizar el prompt de nuestra terminal utilizando la shell **ZSH** y el programa **oh-my-zsh**.
 
 # Requerimientos
 
