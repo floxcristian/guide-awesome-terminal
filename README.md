@@ -79,12 +79,14 @@ sudo apt upgrade
 
 # 3. ¿Qué podemos y no podemos hacer con WSL?
 
-Lo que hay que tener claro es qué es un terminal. Explicado rápido y mal, es un sistema operativo que funciona única y exclusivamente con líneas de comandos y no puede mostrar imágenes más allá del texto que introducimos/muestra. Esto significa que, por ejemplo, podemos instalar cualquier programa que esté disponible en los repositorios de Ubuntu, pero no podremos lanzar aquellos que hagan uso de una GUI, como Firefox (aunque no tendría sentido instalar nada que esté disponible para Windows de manera oficial). También significa que no podremos seguir, por ejemplo, este tutorial para grabar la pantalla con ffmpeg: si introducimos el comando y presionamos Intro, empezará la tarea, pero parará cuando se dé cuenta de que “no hay ningún monitor disponible”.
++ Podemos instalar cualquier programa que esté disponible en los repositorios de Ubuntu. 
++ No podremos lanzar aquellos programas que hagan uso de una GUI. 
++ No podremos seguir, por ejemplo, este tutorial para grabar la pantalla con **ffmpeg**. Si introducimos el comando y presionamos Intro, empezará la tarea, pero parará cuando se dé cuenta de que *no hay ningún monitor disponible*.
 
 # 4. Rutas en Windows y Linux
 
-Ls rutas en **Windows** y **Linux** no se reconocen de la misma forma.
-Por ejemplo la ruta de **Windows** `C:\Users\Pablo\Destktop\` en **Linux** sería `/mnt/c/Users/Pablo/Desktop`.
++ Las rutas en **Windows** y **Linux** no se reconocen de la misma forma.
++ La ruta de **Windows** `C:\Users\Pablo\Destktop\` en **Linux** sería `/mnt/c/Users/Pablo/Desktop`.
 
 
 ## 1.2. Instalar extensión Remote - WSL para VSCode
