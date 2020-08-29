@@ -9,13 +9,11 @@
 + Instalar el tema Powerlevel10k
 + Instalar Plugins
 
-Aquellos usuarios que usan la terminal a diario prácticamente sin personalizar tal vez esta sea una oportunidad para darle un toque de color y romper con la monotonía. Confieso que soy algo renuente al cambio – últimamente me llevo muy bien con la simplicidad –, no obstante decidí probar esta aplicación que poco a poco se va abriendo camino, y debo admitir que está muy bien lograda. A los usuarios que les gusta personalizar la terminal posiblemente se llevarán una buena impresión.
-
 En este tutorial vamos a:
 
-+ instalar la shell **ZSH** sobre Ubuntu como Subsistema de Windows.
-+ personalizar la shell **ZSH** con el framework **Oh-My-ZSH**.
-+ personalizar la shell con el tema **Powerlevel10k**.
++ Instalar la shell **ZSH** sobre Ubuntu como Subsistema de Windows **(WSL)**.
++ Personalizar la shell **ZSH** con el framework **Oh-My-ZSH**.
++ Personalizar la shell con el tema **Powerlevel10k**.
 
 # Objetivos 
 
