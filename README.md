@@ -434,4 +434,4 @@ En este pequeño instructivo su pudo mostrar como actualizar nuestra terminal po
 Por último, pudimos ver cómo instalando la shell ZSH y el programa oh-my-zsh, acompañado de otros paquetes de fuentes como Powerline y Nerd Fonts, lográbamos configurar el prompt de nuestra terminal dándole un aspecto más atractivo que nos permitiera !echarle más ganas durante nuestras horas de trabajo o diversión!
 
 
-Fuentes recomendadas: firacode - dankmono
+Fuentes recomendadas: firacode - dankmono - Jetbrains mono - Cascadia Code
